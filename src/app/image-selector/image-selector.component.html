@@ -1,0 +1,21 @@
+<p>image-selector works!</p>
+<!--
+<input class="" type="file" id="Directory" name="files[]" (change)="getDirectory($event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/>
+-->
+<table id="filesTable" *ngIf="hasFiles">
+	<td id="directory" class="directory" *ngFor="let dir of files">
+		<a>file</a>
+	</td>
+</table>
+<table>
+	<tr>
+		<td id="hoverImg" class="gallery" *ngFor="let image of images">	
+			<a href={{image.image}} target="iframe_a" class="thumbnail">
+				<img class="img-responsive" src={{image.image}}/>
+				<h3 class="caption post-content"> 
+					<label> {{image.pathName}} - {{image.name}}</label>			
+				</h3>
+			</a>		
+		</td>
+	</tr>
+</table>

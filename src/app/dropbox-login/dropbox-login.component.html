@@ -1,0 +1,22 @@
+<div *ngIf="!isValid; else loggedIn">
+	<div class="container">
+		<h1>DropBox Login</h1>
+		<form (ngSubmit)="onSubmit()" #dropboxForm="ngForm">
+		  <div class="form-group">
+			<label for="usr">Username</label>
+			<input type="text" class="form-control" id="usr" required
+			[(ngModel)]="userDeets.usr" name="name">
+		  </div>
+		  
+
+		  <div class="form-group">
+			<label for="pwd">Password</label>
+			<input type="text" class="form-control" id="pwd" required
+			[(ngModel)]="userDeets.pwd" name="pwd">
+		  </div>
+
+		  <button type="submit" class="btn btn-success" routerLink="/imageSelector">Submit</button>
+		</form>
+	</div>
+</div>
+<ng-template #loggedIn><app-image-selector></app-image-selector></ng-template>
