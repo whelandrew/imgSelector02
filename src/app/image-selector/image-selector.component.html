@@ -1,8 +1,8 @@
 <p>image-selector works!</p>
 <!--
 <input class="" type="file" id="Directory" name="files[]" (change)="getDirectory($event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple/>
--->
-<table id="filesTable" *ngIf="hasFiles">
+
+<table id="filesTable" *ngIf="!loading">
 	<td id="directory" class="directory" *ngFor="let dir of files">
 		<a>file</a>
 	</td>
@@ -19,3 +19,4 @@
 		</td>
 	</tr>
 </table>
+-->

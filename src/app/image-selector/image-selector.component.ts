@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import {WebApiPromiseService} from '../app.service';
+import { SearchService } from '../SearchService';
 
 @Component({
   selector: 'app-image-selector',
@@ -10,18 +8,21 @@ import {WebApiPromiseService} from '../app.service';
 })
 export class ImageSelectorComponent implements OnInit {
 	
-	hasFiles = false;
-	files = [];
-	imageURL: string = "https://www.dropbox.com/sh/yxetyp070bzh3ol/AACQIVLkZ2nYNHzIC6TOs_4ka?dl=0";
+	results:Object[];
+	folders:Object[];
+	loading: boolean;
 	
 	getFiles() {
-		this.imagePromiseService
-          .getService(this.imageURL)
-          .then(result => console.log(result))
-          .catch(error => console.log(error));
+		this.loading = true;
+		this.images.search();
+		console.log(this.images);
 	}
 	
-	constructor(private imagePromiseService: WebApiPromiseService) {}
+	constructor(private images:SearchService) {
+		this.results = [];
+		this.folders = [];
+		this.loading = false;
+	}
 
-  ngOnInit() {this.getFiles();}
+ 	ngOnInit() {this.getFiles();}
 }
